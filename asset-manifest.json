@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/table-books/static/css/main.7acaea2f.css",
+    "main.js": "/table-books/static/js/main.07d3183d.js",
+    "index.html": "/table-books/index.html",
+    "main.7acaea2f.css.map": "/table-books/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/table-books/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
