@@ -23,7 +23,7 @@ export const getBookById = async bookId => {
       `https://www.googleapis.com/books/v1/volumes/${bookId}`
     );
 
-    return res.data;
+    return res.data.volumeInfo;
   } catch (error) {
     console.error(error);
   }

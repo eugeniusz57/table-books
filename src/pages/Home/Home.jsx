@@ -11,11 +11,10 @@ import {
   TableHeaderTh,
   TableHeaderTr,
 } from './Home.styled';
-// import { useParams } from 'react-router-dom';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
-  // const { authorName } = useParams();
+
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -40,8 +39,8 @@ const Home = () => {
         </TableHeader>
         <TableBody>
           {books.map(book => (
-            <LinkRow key={book.id} to={book.id}>
-              <TableBodyTr>
+            <TableBodyTr key={book.id}>
+              <LinkRow to={book.id}>
                 <TableBodyTd>{book.id}</TableBodyTd>
                 <TableBodyTd>{book.volumeInfo.authors[0]}</TableBodyTd>
                 <TableBodyTd>{book.volumeInfo.title}</TableBodyTd>
@@ -51,8 +50,8 @@ const Home = () => {
                     : 'Not found'}
                 </TableBodyTd>
                 <TableBodyTd>{book.volumeInfo.publishedDate}</TableBodyTd>
-              </TableBodyTr>
-            </LinkRow>
+              </LinkRow>
+            </TableBodyTr>
           ))}
         </TableBody>
       </Table>
