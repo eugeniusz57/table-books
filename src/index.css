@@ -5,6 +5,7 @@
 :root {
   --main-color: #0079FF;
   --main-color-hover: #60ABFF;
+  --text-hover:#575759;
 
   --white: #FFF;
 
@@ -26,6 +27,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--gray-50);
+  color: var(--gray-50);
 }
 
 body[data-theme='dark'] {

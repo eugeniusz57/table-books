@@ -1,10 +1,21 @@
 import { getBooks } from 'APIService/getBooks';
 import { Section } from '../../components/Section/Section.styled';
 import { useEffect, useState } from 'react';
+import {
+  LinkRow,
+  Table,
+  TableBody,
+  TableBodyTd,
+  TableBodyTr,
+  TableHeader,
+  TableHeaderTh,
+  TableHeaderTr,
+} from './Home.styled';
+// import { useParams } from 'react-router-dom';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
-
+  // const { authorName } = useParams();
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -14,31 +25,37 @@ const Home = () => {
     };
     fetchBooks();
   }, []);
-  console.log(books.map(book => book.volumeInfo.title));
+
   return (
     <Section>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Author</th>
-            <th>Title</th>
-            <th>Page Count</th>
-            <th>Additional Data</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table>
+        <TableHeader>
+          <TableHeaderTr>
+            <TableHeaderTh>ID</TableHeaderTh>
+            <TableHeaderTh>Author</TableHeaderTh>
+            <TableHeaderTh>Title</TableHeaderTh>
+            <TableHeaderTh>Page Count</TableHeaderTh>
+            <TableHeaderTh>Additional Data</TableHeaderTh>
+          </TableHeaderTr>
+        </TableHeader>
+        <TableBody>
           {books.map(book => (
-            <tr key={book.id}>
-              <td>{book.id}</td>
-              <td>{book.volumeInfo.authors[0]}</td>
-              <td>{book.volumeInfo.title}</td>
-              <td>{book.volumeInfo.pageCount}</td>
-              <td>{book.volumeInfo.publishedDate}</td>
-            </tr>
+            <LinkRow key={book.id} to={book.id}>
+              <TableBodyTr>
+                <TableBodyTd>{book.id}</TableBodyTd>
+                <TableBodyTd>{book.volumeInfo.authors[0]}</TableBodyTd>
+                <TableBodyTd>{book.volumeInfo.title}</TableBodyTd>
+                <TableBodyTd>
+                  {book.volumeInfo.pageCount
+                    ? book.volumeInfo.pageCount
+                    : 'Not found'}
+                </TableBodyTd>
+                <TableBodyTd>{book.volumeInfo.publishedDate}</TableBodyTd>
+              </TableBodyTr>
+            </LinkRow>
           ))}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     </Section>
   );
 };
