@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/table-books/static/css/main.038ed14d.css",
-    "main.js": "/table-books/static/js/main.2889022f.js",
+    "main.js": "/table-books/static/js/main.f50817ad.js",
     "index.html": "/table-books/index.html",
     "main.038ed14d.css.map": "/table-books/static/css/main.038ed14d.css.map",
-    "main.2889022f.js.map": "/table-books/static/js/main.2889022f.js.map"
+    "main.f50817ad.js.map": "/table-books/static/js/main.f50817ad.js.map"
   },
   "entrypoints": [
     "static/css/main.038ed14d.css",
-    "static/js/main.2889022f.js"
+    "static/js/main.f50817ad.js"
   ]
 }
