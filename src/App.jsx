@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import BookDetail from 'pages/BookDetail/BookDetail';
 import Home from 'pages/Home/Home.jsx';
@@ -10,8 +10,8 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/:authorName" element={<BookDetail />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path=":bookId/:authorName" element={<BookDetail />} />
+          {/* <Route path="*" element={<Navigate to="/" />} /> */}
         </Route>
       </Routes>
     </>

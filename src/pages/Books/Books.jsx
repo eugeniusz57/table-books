@@ -2,6 +2,7 @@ import { getBooks } from 'APIService/getBooks';
 import { Section } from '../../components/Section/Section.styled';
 import { useEffect, useState } from 'react';
 import {
+  LinkRow,
   Table,
   TableBody,
   TableBodyTd,
@@ -9,17 +10,10 @@ import {
   TableHeader,
   TableHeaderTh,
   TableHeaderTr,
-} from './Home.styled';
-import { useNavigate } from 'react-router-dom';
+} from './Books.styled';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
-
-  const navigate = useNavigate();
-
-  const handleRowClick = (id, authorName) => {
-    navigate(`/${id}/${authorName}`);
-  };
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -45,21 +39,18 @@ const Home = () => {
         </TableHeader>
         <TableBody>
           {books.map(book => (
-            <TableBodyTr
-              key={book.id}
-              onClick={() =>
-                handleRowClick(book.id, book.volumeInfo.authors[0])
-              }
-            >
-              <TableBodyTd>{book.id}</TableBodyTd>
-              <TableBodyTd>{book.volumeInfo.authors[0]}</TableBodyTd>
-              <TableBodyTd>{book.volumeInfo.title}</TableBodyTd>
-              <TableBodyTd>
-                {book.volumeInfo.pageCount
-                  ? book.volumeInfo.pageCount
-                  : 'Not found'}
-              </TableBodyTd>
-              <TableBodyTd>{book.volumeInfo.publishedDate}</TableBodyTd>
+            <TableBodyTr key={book.id}>
+              <LinkRow to={book.id}>
+                <TableBodyTd>{book.id}</TableBodyTd>
+                <TableBodyTd>{book.volumeInfo.authors[0]}</TableBodyTd>
+                <TableBodyTd>{book.volumeInfo.title}</TableBodyTd>
+                <TableBodyTd>
+                  {book.volumeInfo.pageCount
+                    ? book.volumeInfo.pageCount
+                    : 'Not found'}
+                </TableBodyTd>
+                <TableBodyTd>{book.volumeInfo.publishedDate}</TableBodyTd>
+              </LinkRow>
             </TableBodyTr>
           ))}
         </TableBody>

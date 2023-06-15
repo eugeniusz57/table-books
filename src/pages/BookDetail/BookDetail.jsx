@@ -1,31 +1,64 @@
 import { useParams } from 'react-router-dom';
-import { getBookById } from 'APIService/getBooks';
+import { getBookById, searchBooksCurrentAuthor } from 'APIService/getBooks';
 import { useEffect, useState } from 'react';
 import React from 'react';
+import DOMPurify from 'dompurify';
 import { Section } from 'components/Section/Section.styled';
+import {
+  BookImg,
+  BookInformation,
+  ContainerBookDetaile,
+  Description,
+  SubTitle,
+  Title,
+} from './BookDetail.styled';
+
+function stripHtmlTags(htmlString) {
+  const purifiedText = DOMPurify.sanitize(htmlString, { ALLOWED_TAGS: [] });
+  return purifiedText;
+}
 
 const BookDetail = () => {
-  const { authorName } = useParams();
+  const { bookId, authorName } = useParams();
   const [book, setBook] = useState();
+  const [authorBooks, setAuthorBooks] = useState();
   useEffect(() => {
     const fetchBookById = async () => {
       try {
-        const data = await getBookById(authorName);
+        const data = await getBookById(bookId);
         setBook(data);
-        console.log('Fetch id');
+        const authorsDate = await searchBooksCurrentAuthor(authorName);
+
+        setAuthorBooks(authorsDate);
       } catch (error) {}
     };
     fetchBookById();
-  }, [authorName]);
-
-  console.log('id', authorName);
-  console.log('Book=', book?.description);
+  }, [bookId, authorName]);
   const htmlString = book?.description;
+  const text = stripHtmlTags(htmlString);
+
+  console.log(authorBooks);
 
   return (
-    <Section>
-      <div dangerouslySetInnerHTML={{ __html: htmlString }}></div>
-    </Section>
+    <>
+      <Section>
+        <Title>Title: {book?.title}</Title>
+        <ContainerBookDetaile>
+          <BookImg src={book?.imageLinks?.large} alt="foto" />
+          <BookInformation>
+            <SubTitle>Author</SubTitle>
+            <Description>{book?.authors}</Description>
+            <SubTitle>Categories</SubTitle>
+            <Description>{book?.categories.join(', ')}</Description>
+            <SubTitle>Description</SubTitle>
+            <Description>{text.trim()}</Description>
+          </BookInformation>
+        </ContainerBookDetaile>
+      </Section>
+      <Section>
+        <Title>More Books by the Same Author:</Title>
+      </Section>
+    </>
   );
 };
 

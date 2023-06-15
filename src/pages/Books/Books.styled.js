@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Table = styled.table`
@@ -32,4 +33,10 @@ export const TableBodyTd = styled.td`
   padding: 8px;
   text-align: left;
   border: 1px solid var(--gray-50);
+`;
+
+export const LinkRow = styled(Link)`
+  display: contents;
+  color: var(--gray-50);
+  text-decoration: none;
 `;

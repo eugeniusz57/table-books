@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/table-books">
+    <BrowserRouter basename="table-books">
       <App />
     </BrowserRouter>
   </React.StrictMode>

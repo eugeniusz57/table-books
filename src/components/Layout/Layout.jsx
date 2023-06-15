@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 import { Nav, Span } from './Layout.styled';
 import { Outlet } from 'react-router-dom';
 import { Container } from '../Container/Container';
@@ -13,9 +13,7 @@ const Layout = () => {
           </Nav>
         </header>
         <main>
-          <Suspense fallback={null}>
-            <Outlet />
-          </Suspense>
+          <Outlet />
         </main>
       </Container>
     </>

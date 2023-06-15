@@ -28,3 +28,17 @@ export const getBookById = async bookId => {
     console.error(error);
   }
 };
+
+export const searchBooksCurrentAuthor = async authorName => {
+  try {
+    const res = await axios.get(
+      `https://www.googleapis.com/books/v1/volumes?q=inauthor:${encodeURIComponent(
+        authorName
+      )}`
+    );
+
+    return res.data.items;
+  } catch (error) {
+    console.error(error);
+  }
+};
