@@ -6,11 +6,15 @@ import DOMPurify from 'dompurify';
 import { Section } from 'components/Section/Section.styled';
 import {
   BookImg,
+  BookImgByAuthor,
   BookInformation,
   ContainerBookDetaile,
+  ContainerMoreBooksByAuthor,
   Description,
+  MoreBooksByAuthorList,
   SubTitle,
   Title,
+  TitleBook,
 } from './BookDetail.styled';
 
 function stripHtmlTags(htmlString) {
@@ -46,17 +50,30 @@ const BookDetail = () => {
         <ContainerBookDetaile>
           <BookImg src={book?.imageLinks?.large} alt="foto" />
           <BookInformation>
-            <SubTitle>Author</SubTitle>
+            <SubTitle>Author:</SubTitle>
             <Description>{book?.authors}</Description>
-            <SubTitle>Categories</SubTitle>
+            <SubTitle>Categories:</SubTitle>
             <Description>{book?.categories.join(', ')}</Description>
-            <SubTitle>Description</SubTitle>
+            <SubTitle>Description:</SubTitle>
             <Description>{text.trim()}</Description>
           </BookInformation>
         </ContainerBookDetaile>
       </Section>
       <Section>
         <Title>More Books by the Same Author:</Title>
+
+        <ContainerMoreBooksByAuthor>
+          {authorBooks &&
+            authorBooks.map(book => (
+              <MoreBooksByAuthorList key={book.id}>
+                <BookImgByAuthor
+                  src={book?.volumeInfo?.imageLinks?.smallThumbnail}
+                  alt={'foto'}
+                />
+                <TitleBook> {book?.volumeInfo?.title}</TitleBook>
+              </MoreBooksByAuthorList>
+            ))}
+        </ContainerMoreBooksByAuthor>
       </Section>
     </>
   );
