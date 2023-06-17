@@ -16,6 +16,8 @@ import {
   Title,
   TitleBook,
 } from './BookDetail.styled';
+import Not_Pictured from '../../images/not-pictured.png';
+import { shortTitle } from 'helpers/ShortTitle';
 
 function stripHtmlTags(htmlString) {
   const purifiedText = DOMPurify.sanitize(htmlString, { ALLOWED_TAGS: [] });
@@ -48,7 +50,12 @@ const BookDetail = () => {
       <Section>
         <Title>Title: {book?.title}</Title>
         <ContainerBookDetaile>
-          <BookImg src={book?.imageLinks?.large} alt="foto" />
+          <BookImg
+            src={
+              book?.imageLinks?.large ? book?.imageLinks?.large : Not_Pictured
+            }
+            alt="Big book foto"
+          />
           <BookInformation>
             <SubTitle>Author:</SubTitle>
             <Description>{book?.authors}</Description>
@@ -67,10 +74,14 @@ const BookDetail = () => {
             authorBooks.map(book => (
               <MoreBooksByAuthorList key={book.id}>
                 <BookImgByAuthor
-                  src={book?.volumeInfo?.imageLinks?.smallThumbnail}
-                  alt={'foto'}
+                  src={
+                    book?.volumeInfo?.imageLinks?.smallThumbnail
+                      ? book?.volumeInfo?.imageLinks?.smallThumbnail
+                      : Not_Pictured
+                  }
+                  alt={'book foto'}
                 />
-                <TitleBook> {book?.volumeInfo?.title}</TitleBook>
+                <TitleBook> {shortTitle(book?.volumeInfo?.title)}</TitleBook>
               </MoreBooksByAuthorList>
             ))}
         </ContainerMoreBooksByAuthor>

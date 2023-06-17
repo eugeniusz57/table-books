@@ -2,7 +2,15 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   position: relative;
-  padding: 30px 20px 30px;
+  padding-top: 50px;
+  padding-bottom: 50;
+
+  @media (min-width: 768px) {
+    padding-top: 72px;
+  }
+  @media (min-width: 1440px) {
+    padding-top: 100px;
+  }
 `;
 
 export const SectionTitle = styled.title`

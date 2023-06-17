@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Title = styled.h2`
-  color: var(--main-color);
+  color: var(--gray-400);
   font-size: 32px;
 `;
 
 export const SubTitle = styled.h3`
-  color: var(--main-color);
+  color: var(--gray-400);
 `;
 
 export const Description = styled.p`
@@ -17,7 +17,6 @@ export const Description = styled.p`
   font-weight: 500;
   font-size: 16px;
   line-height: 176%;
-  /* or 28px */
   letter-spacing: 0.04em;
 `;
 
@@ -60,26 +59,26 @@ export const MoreBooksByAuthorList = styled.li`
   border-radius: 6px;
   padding: 5px;
   position: relative;
-  border: 1px solid red;
+  border: 2px solid #743e3e;
 `;
 
 export const TitleBook = styled.h6`
   color: var(--gray-50);
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 20px;
-  left: 4px;
+  bottom: 10px;
+  left: 6px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 20px;
   letter-spacing: -0.24px;
 
   background: var(--gray-400);
   border-radius: 20px;
-  padding: 16px;
-  width: 190px;
+  padding: 8px;
+  width: 182px;
 `;
 
 export const BookImgByAuthor = styled.img`
