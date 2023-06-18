@@ -1,7 +1,14 @@
-import React from 'react';
+import { ButtonUp } from './Button.styled';
 
-const Button = () => {
-  return <div></div>;
+export const ButtonScrollUp = ({
+  type = 'button',
+  onClick,
+  children,
+  isButtonUp,
+}) => {
+  return (
+    <ButtonUp type={type} onClick={onClick} isButtonUp={isButtonUp}>
+      {children}
+    </ButtonUp>
+  );
 };
-
-export default Button;

@@ -1,9 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
 
-import BookDetail from 'pages/BookDetail/BookDetail';
-import Home from 'pages/Home/Home.jsx';
 import Layout from './components/Layout/Layout';
 import NotFound from './pages/NotFound/NotFound';
+
+const Home = lazy(() => import('./pages/Home/Home'));
+const BookDetail = lazy(() => import('./pages/BookDetail/BookDetail'));
 
 export const App = () => {
   return (

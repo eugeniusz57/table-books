@@ -8,7 +8,7 @@ export const Section = styled.section`
   @media (min-width: 768px) {
     padding-top: 72px;
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1240px) {
     padding-top: 100px;
   }
 `;

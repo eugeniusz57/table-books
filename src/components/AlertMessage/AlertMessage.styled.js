@@ -19,7 +19,7 @@ export const Message = styled.p`
     line-height: 32px;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1240px) {
     font-size: 48px;
     line-height: 44px;
   }
