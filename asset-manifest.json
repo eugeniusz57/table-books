@@ -1,15 +1,23 @@
 {
   "files": {
     "main.css": "/table-books/static/css/main.63fdf623.css",
-    "main.js": "/table-books/static/js/main.7630e3ba.js",
+    "main.js": "/table-books/static/js/main.c019d5ad.js",
+    "static/js/224.13d4b3ce.chunk.js": "/table-books/static/js/224.13d4b3ce.chunk.js",
+    "static/js/966.69be277d.chunk.js": "/table-books/static/js/966.69be277d.chunk.js",
+    "static/js/664.e5ed672c.chunk.js": "/table-books/static/js/664.e5ed672c.chunk.js",
+    "static/js/703.f28787a9.chunk.js": "/table-books/static/js/703.f28787a9.chunk.js",
     "static/media/Not_Found_Page.jpg": "/table-books/static/media/Not_Found_Page.6cc57479eeba020de14c.jpg",
     "static/media/not-pictured.png": "/table-books/static/media/not-pictured.1d1424d0b4a22408eba0.png",
     "index.html": "/table-books/index.html",
     "main.63fdf623.css.map": "/table-books/static/css/main.63fdf623.css.map",
-    "main.7630e3ba.js.map": "/table-books/static/js/main.7630e3ba.js.map"
+    "main.c019d5ad.js.map": "/table-books/static/js/main.c019d5ad.js.map",
+    "224.13d4b3ce.chunk.js.map": "/table-books/static/js/224.13d4b3ce.chunk.js.map",
+    "966.69be277d.chunk.js.map": "/table-books/static/js/966.69be277d.chunk.js.map",
+    "664.e5ed672c.chunk.js.map": "/table-books/static/js/664.e5ed672c.chunk.js.map",
+    "703.f28787a9.chunk.js.map": "/table-books/static/js/703.f28787a9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.63fdf623.css",
-    "static/js/main.7630e3ba.js"
+    "static/js/main.c019d5ad.js"
   ]
 }
