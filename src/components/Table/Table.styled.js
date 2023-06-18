@@ -19,7 +19,7 @@ export const TableHeaderTr = styled.tr``;
 
 export const TableHeaderTh = styled.th`
   padding: 8px;
-  text-align: left;
+  text-align: center;
   border: 1px solid var(--gray-50);
   @media (max-width: 767px) {
     padding: 8px;
