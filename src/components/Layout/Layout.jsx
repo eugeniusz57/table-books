@@ -2,16 +2,18 @@
 import { Nav, Span } from './Layout.styled';
 import { Outlet } from 'react-router-dom';
 import { Container } from '../Container/Container';
+import Breadcrumb from 'components/Breadcrumb/Breadcrumb';
 
 const Layout = () => {
   return (
     <>
+      <header>
+        <Nav>
+          <Span>Books</Span>
+        </Nav>
+      </header>
       <Container>
-        <header>
-          <Nav>
-            <Span>Books</Span>
-          </Nav>
-        </header>
+        <Breadcrumb />
         <main>
           <Outlet />
         </main>

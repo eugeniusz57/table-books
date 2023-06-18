@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import TableBooks from 'components/Table/Table';
+import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -18,8 +19,8 @@ const Home = () => {
 
   useEffect(() => {
     const fetchBooks = async () => {
+      setIsLoading(true);
       try {
-        setIsLoading(true);
         const data = await getBooks();
         setBooks(data);
       } catch (error) {
@@ -33,12 +34,17 @@ const Home = () => {
 
   return (
     <Section>
-      <TableBooks
-        books={books}
-        onClick={handleRowClick}
-        isLoading={isLoading}
-        error={error}
-      />
+      {error ? (
+        <AlertMessage>
+          Oops, something went wrong. Please try again later...
+        </AlertMessage>
+      ) : (
+        <TableBooks
+          books={books}
+          onClick={handleRowClick}
+          isLoading={isLoading}
+        />
+      )}
     </Section>
   );
 };

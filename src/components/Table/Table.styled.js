@@ -48,12 +48,22 @@ export const TableBodyTd = styled.td`
     padding: 8px;
     text-align: right;
     display: block;
-    /* border: none; */
     border: 0.5px solid var(--gray-50);
 
     &::before {
       content: attr(data-title) ':';
       float: left;
     }
+  }
+`;
+
+export const Caption = styled.caption`
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+  color: var(--gray-400);
+  @media (min-width: 768px) {
+    font-size: 32px;
   }
 `;

@@ -1,5 +1,6 @@
 import { Loader } from 'components/Loader/Loader';
 import {
+  Caption,
   Table,
   TableBody,
   TableBodyTd,
@@ -8,21 +9,17 @@ import {
   TableHeaderTh,
   TableHeaderTr,
 } from './Table.styled';
-import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 
-const TableBooks = ({ books, onClick, isLoading, error }) => {
+const TableBooks = ({ books, onClick, isLoading }) => {
   return (
     <>
-      {error ? (
-        <AlertMessage>
-          Oops, something went wrong. Please try again later...
-        </AlertMessage>
+      {books.length === 0 && isLoading ? (
+        <Loader />
       ) : (
         <>
-          {books.length === 0 && isLoading ? (
-            <Loader />
-          ) : (
+          {books.length > 0 && (
             <Table>
+              <Caption>List of Books</Caption>
               <TableHeader>
                 <TableHeaderTr>
                   <TableHeaderTh>ID</TableHeaderTh>

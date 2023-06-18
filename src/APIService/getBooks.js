@@ -1,5 +1,4 @@
 import axios from 'axios';
-// const KEY = 'AIzaSyDa9pA6aHUzQXqtlA93XzBtf82pJ502jm';
 
 export const getBooks = async () => {
   try {
@@ -13,7 +12,7 @@ export const getBooks = async () => {
 
     return res.data.items;
   } catch (error) {
-    console.error(error);
+    throw error.message;
   }
 };
 
@@ -25,7 +24,7 @@ export const getBookById = async bookId => {
 
     return res.data.volumeInfo;
   } catch (error) {
-    console.error(error);
+    throw error.message;
   }
 };
 
@@ -39,6 +38,6 @@ export const searchBooksCurrentAuthor = async authorName => {
 
     return res.data.items;
   } catch (error) {
-    console.error(error);
+    throw error.message;
   }
 };
