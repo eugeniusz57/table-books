@@ -117,7 +117,12 @@ export const TitleBook = styled.h6`
   background: var(--gray-400);
   border-radius: 20px;
   padding: 8px;
-  width: 283px;
+  width: 269px;
+  @media screen and (min-width: 425px) {
+    font-size: 18px;
+
+    width: 283px;
+  }
   @media screen and (min-width: 768px) {
     font-size: 18px;
     width: 282px;
