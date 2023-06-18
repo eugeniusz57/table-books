@@ -2,7 +2,7 @@
 import { Nav, Span } from './Layout.styled';
 import { Outlet } from 'react-router-dom';
 import { Container } from '../Container/Container';
-import Breadcrumb from 'components/Breadcrumb/Breadcrumb';
+// import Breadcrumb from 'components/Breadcrumb/Breadcrumb';
 
 const Layout = () => {
   return (
@@ -13,7 +13,7 @@ const Layout = () => {
         </Nav>
       </header>
       <Container>
-        <Breadcrumb />
+        {/* <Breadcrumb /> */}
         <main>
           <Outlet />
         </main>

@@ -28,9 +28,7 @@ const Breadcrumb = () => {
     return sentence;
   };
   const arpath = path(pathname);
-  console.log(path(pathname));
-  console.log(arpath.length > 0);
-  //   console.log('crumbs', crumbs);
+
   return (
     <BreadCrumbContainer>
       {arpath.length > 0 &&
